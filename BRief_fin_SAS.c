@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-// client information function //
+// client information function
 
 typedef struct {
 
@@ -11,8 +11,8 @@ typedef struct {
      	char firstName[20] ;
 
 }clientinfo;
-
-// Add account function //
+int N;
+// Add account function 
 void addaccount(){
 
 	     float Amount;
@@ -31,8 +31,8 @@ void addaccount(){
 	     printf("%s %s %s %.2f",ID,lastName,firstName,Amount);
 
 	}
-	// Add multiple accounts//
-		clientinfo accounts[1000];
+	// Add multiple accounts
+		clientinfo accounts[100];
 	void add_multiple_acc(){
 		int N,i;
 	    printf(" Please enter the number of accounts you would like to create: ");
@@ -53,7 +53,7 @@ void addaccount(){
 
 	 }
 
-// 
+// Withdrawal function
 }
   void withdrawal(){
             float Amou;
@@ -81,6 +81,7 @@ void addaccount(){
                }
 
 }
+// The money deposit funtion 
   void deposit(){
             float Amou;
         	int i;
@@ -103,6 +104,8 @@ void addaccount(){
                 printf("Your account balance = %f",accounts[X].Amount);
 
  }
+ // Diplay ascendant - descendant function 
+
  void Display(){
  	    int View;
  	    printf("    Display     ");
@@ -114,8 +117,45 @@ void addaccount(){
  	    	break;
  	    	case 2:Descendant();
  	    	break;
+			case 3:Ascendant_tri();
+ 	    	break;
+			case 4:Descendant_tri();
+ 	    	break;
  	    }
 		 }
+
+Ascendant_tri(){
+	     Ascendant();
+		 float Amou;
+		 int i; 
+	     printf("Enter the Amount :");
+	     scanf("%f",&Amou);
+	     for(i=0;i<N;i++){
+	     	if(accounts[i].Amount<Amou){
+	     		 printf("ID no :%s",accounts[i].ID);
+		         printf("\n|Last name :%s",accounts[i].lastName);
+		         printf("\n|First name :%s",accounts[i].firstName);
+		         printf("\n|Amount :%.2f",accounts[i].Amount);
+			 }
+		     
+		 }
+	     	
+}
+Descendant_tri(){
+	 float Amou;
+		 int i; 
+	     printf("entrer montant:");
+	     scanf("%f",&Amou);
+	     for(i=0;i<N;i++){
+	     	if(accounts[i].Amount>Amou){
+	     		 printf("%s",accounts[i].ID);
+		         printf("%s",accounts[i].lastName);
+		         printf("%s",accounts[i].firstName);
+		    }     printf("%f",accounts[i].Amount);
+}
+}
+ // Accounts ascendant function 
+
  void Ascendant(){
  	    int N , X,i,j ;
  	   	printf("\n please enter your account number :");
@@ -133,6 +173,8 @@ void addaccount(){
  	   		for(i=0;i<N;i++)
  	   		printf("%.2f",accounts[i].Amount);
  }
+ // Accounts Descendant function 
+
 void Descendant(){
         int N , X,i,j ;
  	   	printf("\n please enter your account number:");
@@ -150,6 +192,7 @@ void Descendant(){
  	   		for(i=0;i<N;i++)
  	   		printf("%.2f",accounts[i].Amount);
 }
+// Operation function withdrarwal - deposit 
 
 void operations(){
 	    int choice;
