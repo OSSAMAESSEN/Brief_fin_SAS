@@ -1,70 +1,71 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
+// client information function //
 
 typedef struct {
 
     	float Amount;
-    	char   id[8]  ;
+    	char   ID[8]  ;
     	char   lastName[12] ;
      	char firstName[20] ;
 
 }clientinfo;
 
-
+// Add account function //
 void addaccount(){
 
 	     float Amount;
-	     char   id[8]  ;
+	     char   ID[8] ;
 	     char   lastName[12] ;
 	     char firstName[20] ;
 	     printf("please enter the following information :");
-	     printf("\nid:");
-	     scanf("%s",id);
+	     printf("\nID no :");
+	     scanf("%s",ID);
 	     printf("last Name:");
 	     scanf("%s",lastName);
 	     printf("first Name:");
-	     scanf("%s",&firstName);
-	     printf("Amount:");
-	     scanf("%s",&Amount);
-	     printf("%s%s%s%s",id,lastName,firstName,Amount);
+	     scanf("%s",firstName);
+	     printf("The Amount:");
+	     scanf("%f",&Amount);
+	     printf("%s %s %s %.2f",ID,lastName,firstName,Amount);
 
 	}
+	// Add multiple accounts//
 		clientinfo accounts[1000];
 	void add_multiple_acc(){
 		int N,i;
-	    printf("veuiller Entrez le nombre de comptes que vous souhaitez creer: ");
+	    printf(" Please enter the number of accounts you would like to create: ");
 	    scanf("%d",&N);
 
 
        	for(i=0;i<=N-1;i++){
-	        printf("\n entrer montant:");
+	        printf("\n enter the amount :");
 	        scanf("%f",&accounts[i].Amount);
-	       	printf("\nCIN:");
-	       	scanf("%s",accounts[i].id);
+	       	printf("\nID:");
+	       	scanf("%s",accounts[i].ID);
 	       	printf("\nlast Name:");
 	       	scanf("%s",accounts[i].lastName);
 	       	printf("\nfirst Name:");
 	       	scanf("%s",accounts[i].firstName);
 	       	printf("The client information are :");
-	        printf("\n %f,%s,%s,%s",accounts[i].Amount,accounts[i].id,accounts[i].lastName,accounts[i].firstName);
+	        printf("\n %f,%s,%s,%s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
 
 	 }
 
-
+// 
 }
-  void retrait(){
+  void withdrawal(){
             float Amou;
         	int i;
         	 int X;
-            char id[8];
+            char ID[8];
             float result;
 
-            printf(" Enter your id N': ");
-            scanf("%s",id);
+            printf(" Enter your ID no: ");
+            scanf("%s",ID);
             for(i=0;i<50;i++){
-              if (strcmp(id,accounts[i].id) == 0){
+              if (strcmp(ID,accounts[i].ID) == 0){
               	X=i;
 			  }
 
@@ -80,16 +81,16 @@ void addaccount(){
                }
 
 }
-  void depot(){
+  void deposit(){
             float Amou;
         	int i;
         	 int X;
-            char id[8];
+            char ID[8];
             float result;
-       printf(" Enter your id N': ");
-            scanf("%s",id);
+       printf(" Enter your ID no: ");
+            scanf("%s",ID);
             for(i=0;i<50;i++){
-              if (strcmp(id,accounts[i].id) == 0)
+              if (strcmp(ID,accounts[i].ID) == 0)
                   X=i;
             }
 
@@ -105,13 +106,13 @@ void addaccount(){
  void Display(){
  	    int View;
  	    printf("    Display     ");
- 	    printf("\n\n Type your choice:");
- 	    printf("1:Ascendant    2:Descendant");
+ 	    printf("\n\n Type your choice:\n");
+ 	    printf(" 1:Ascendant    2:Descendant\n");
  	    scanf("%d",&View);
  	    switch(View){
- 	    	case 1: Ascendant();
+ 	    	case 1:Ascendant();
  	    	break;
- 	    	case 2: Descendant();
+ 	    	case 2:Descendant();
  	    	break;
  	    }
 		 }
@@ -157,9 +158,9 @@ void operations(){
 	    printf("\n2: Deposit");
 	    scanf("\n%d",&choice);
 	    switch(choice){
-	    	case 1:	retrait();
+	    	case 1:withdrawal();
 		    break;
-		    case 2:depot();
+		    case 2:deposit();
 		    break;
 		}
 }
