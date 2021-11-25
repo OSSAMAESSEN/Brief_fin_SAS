@@ -28,39 +28,38 @@ void addaccount(){
 	     scanf("%s",firstName);
 	     printf("The Amount:");
 	     scanf("%f",&Amount);
-	     printf("%s %s %s %.2f",ID,lastName,firstName,Amount);
-
+	     printf("\n The Amount: %.2f ID no: %s last Name: %s first Name: %s",Amount, ID, lastName,firstName);
+          Menu();
 	}
 	// Add multiple accounts
 		clientinfo accounts[100];
 	void add_multiple_acc(){
 		int N,i;
-	    printf(" Please enter the number of accounts you would like to create: ");
+	    printf("\n\n Please enter the number of accounts you would like to create: ");
 	    scanf("%d",&N);
 
 
        	for(i=0;i<=N-1;i++){
-	        printf("\n enter the amount :");
+	        printf("\n Enter the amount :");
 	        scanf("%f",&accounts[i].Amount);
-	       	printf("\nID:");
+	       	printf("\nID no:");
 	       	scanf("%s",accounts[i].ID);
 	       	printf("\nlast Name:");
 	       	scanf("%s",accounts[i].lastName);
 	       	printf("\nfirst Name:");
 	       	scanf("%s",accounts[i].firstName);
 	       	printf("The client information are :");
-	        printf("\n %f,%s,%s,%s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
-
-	 }
-
+	        printf("\n The Amount: %.2f ID no: %s last Name: %s first Name: %s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
+            
+         }
+     }
 // Withdrawal function
-}
+
   void withdrawal(){
             float Amou;
         	int i;
         	 int X;
             char ID[8];
-            float result;
 
             printf(" Enter your ID no: ");
             scanf("%s",ID);
@@ -73,11 +72,11 @@ void addaccount(){
             printf("Enter the amount:");
             scanf("%f",&Amou);
             if(Amou>accounts[X].Amount)
-                printf("impossible");
+                printf("Withrawal impossible");
             else
                {   
                 accounts[X].Amount=accounts[X].Amount-Amou;
-                printf("-----your balance =%.2f",accounts[X].Amount);
+                printf("-----your balance = %.2f",accounts[X].Amount);
                }
 
 }
@@ -87,7 +86,7 @@ void addaccount(){
         	int i;
         	 int X;
             char ID[8];
-            float result;
+			
        printf(" Enter your ID no: ");
             scanf("%s",ID);
             for(i=0;i<50;i++){
@@ -95,13 +94,13 @@ void addaccount(){
                   X=i;
             }
 
-            printf("entrer the amount:");
+            printf("Enter the amount:");
             scanf("%f",&Amou);
 
 
                    
                 accounts[X].Amount=accounts[X].Amount+Amou;
-                printf("Your account balance = %f",accounts[X].Amount);
+                printf("Your account balance = %.2f",accounts[X].Amount);
 
  }
  // Diplay ascendant - descendant function 
@@ -122,6 +121,7 @@ void addaccount(){
 			case 4:Descendant_tri();
  	    	break;
  	    }
+		 Menu();
 		 }
 
 Ascendant_tri(){
@@ -151,7 +151,7 @@ Descendant_tri(){
 	     		 printf("%s",accounts[i].ID);
 		         printf("%s",accounts[i].lastName);
 		         printf("%s",accounts[i].firstName);
-		    }     printf("%f",accounts[i].Amount);
+		    }    printf("%f",accounts[i].Amount);
 }
 }
  // Accounts ascendant function 
@@ -169,9 +169,9 @@ Descendant_tri(){
 				}
  	   		}
 
- 	   		printf("\n\n After sorting:");
+ 	   		printf("\n\n            After sorting\n:");
  	   		for(i=0;i<N;i++)
- 	   		printf("%.2f",accounts[i].Amount);
+ 	   		printf("Amount: %.2f ID no: %s last Name: %s first name: %s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
  }
  // Accounts Descendant function 
 
@@ -190,7 +190,7 @@ void Descendant(){
 
  	   		printf("\n\n After sorting :");
  	   		for(i=0;i<N;i++)
- 	   		printf("%.2f",accounts[i].Amount);
+ 	   		printf("Amount: %.2f ID no: %s last Name: %s first name: %s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
 }
 // Operation function withdrarwal - deposit 
 
@@ -206,6 +206,7 @@ void operations(){
 		    case 2:deposit();
 		    break;
 		}
+		Menu();
 }
 
 
@@ -214,7 +215,7 @@ void Menu()
        int choice;
        do
        {
-        printf(">>>>>>>>##########/ Thank you for choosing our services \\#########<<<<<<<<");
+        printf("\n\n>>>>>>>>##########/ Thank you for choosing our services \\#########<<<<<<<<");
 
 			    printf("\n\n-1. Creat a bank account\n");
 			    printf("-2. Enter multiple accounts\n");
