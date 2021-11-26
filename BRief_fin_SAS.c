@@ -11,6 +11,7 @@ typedef struct {
      	char firstName[20] ;
 
 }clientinfo;
+clientinfo accounts[100];
 int N;
 // Add account function 
 void addaccount(){
@@ -32,7 +33,7 @@ void addaccount(){
           Menu();
 	}
 	// Add multiple accounts
-		clientinfo accounts[100];
+		
 	void add_multiple_acc(){
 		int N,i;
 	    printf("\n\n Please enter the number of accounts you would like to create: ");
@@ -49,7 +50,7 @@ void addaccount(){
 	       	printf("\nfirst Name:");
 	       	scanf("%s",accounts[i].firstName);
 	       	printf("The client information are :");
-	        printf("\n The Amount: %.2f ID no: %s last Name: %s first Name: %s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
+	        printf("\n The Amount: %.2f ID no: %s last Name: %s first Name: %s\n\n",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
             
          }
      }
@@ -94,7 +95,7 @@ void addaccount(){
                   X=i;
             }
 
-            printf("Enter the amount:");
+            printf("Enter the Amount:");
             scanf("%f",&Amou);
 
 
@@ -125,7 +126,7 @@ void addaccount(){
 		 }
 
 Ascendant_tri(){
-	     Ascendant();
+	    
 		 float Amou;
 		 int i; 
 	     printf("Enter the Amount :");
@@ -144,22 +145,22 @@ Ascendant_tri(){
 Descendant_tri(){
 	 float Amou;
 		 int i; 
-	     printf("entrer montant:");
+	     printf("Enter the Amount :");
 	     scanf("%f",&Amou);
 	     for(i=0;i<N;i++){
 	     	if(accounts[i].Amount>Amou){
-	     		 printf("%s",accounts[i].ID);
-		         printf("%s",accounts[i].lastName);
-		         printf("%s",accounts[i].firstName);
-		    }    printf("%f",accounts[i].Amount);
+	     		 printf("ID no :%s",accounts[i].ID);
+		         printf("\n|Last name :%s",accounts[i].lastName);
+		         printf("\n|First name :%s",accounts[i].firstName);
+		    }    printf("\n|Amount :%.2f",accounts[i].Amount);
 }
 }
  // Accounts ascendant function 
 
  void Ascendant(){
- 	    int N , X,i,j ;
- 	   	printf("\n please enter your account number :");
- 	   	scanf("%d",&N);
+ 	    int N,X,i,j ;
+ 	printf("\n Enter account number");
+			scanf("%d",&N);
  	   	for(i=0;i<N-1;i++)
  	   	for(j=i+1;j<N;j++){
  	   		if(accounts[i].Amount>accounts[j].Amount){
@@ -167,38 +168,38 @@ Descendant_tri(){
  	   		   	accounts[i].Amount=accounts[j].Amount;
  	   		   	accounts[j].Amount=X;
 				}
- 	   		}
+ 	   	}
 
  	   		printf("\n\n            After sorting\n:");
  	   		for(i=0;i<N;i++)
- 	   		printf("Amount: %.2f ID no: %s last Name: %s first name: %s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
+ 	   		printf("\nAmount: %f ID no: %s last Name: %s first name: %s\n\n",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
  }
  // Accounts Descendant function 
 
 void Descendant(){
-        int N , X,i,j ;
- 	   	printf("\n please enter your account number:");
- 	   	scanf("%d",&N);
+        int  N,X,i,j ;
+ 	   	printf("\n Enter account number");
+			scanf("%d",&N);
  	   	for(i=0;i<N-1;i++)
- 	   	for(j=i+1;j>N;j++){
- 	   		if(accounts[i].Amount>accounts[j].Amount){
+ 	   	for(j=i+1;j<N;j++){
+ 	   		if(accounts[i].Amount<accounts[j].Amount){
  	   		   	X=accounts[i].Amount;
  	   		   	accounts[i].Amount=accounts[j].Amount;
  	   		   	accounts[j].Amount=X;
 				}
  	   		}
 
- 	   		printf("\n\n After sorting :");
+ 	   		printf("\n After sorting :");
  	   		for(i=0;i<N;i++)
- 	   		printf("Amount: %.2f ID no: %s last Name: %s first name: %s",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
+ 	   		printf("\nAmount: %f ID no: %s last Name: %s first name: %s\n\n",accounts[i].Amount,accounts[i].ID,accounts[i].lastName,accounts[i].firstName);
 }
 // Operation function withdrarwal - deposit 
 
 void operations(){
 	    int choice;
-	    printf(" please enter your choice :");
+	    printf("\n\n please enter your choice :");
 	    printf("\n1: Withdraw");
-	    printf("\n2: Deposit");
+	    printf("\n2: Deposit\n");
 	    scanf("\n%d",&choice);
 	    switch(choice){
 	    	case 1:withdrawal();
@@ -209,7 +210,7 @@ void operations(){
 		Menu();
 }
 
-
+// Display Menu
 void Menu()
 {
        int choice;
